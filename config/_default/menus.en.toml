@@ -1,0 +1,75 @@
+# Top navigation
+[[main]]
+  name = "about"
+  pageRef = "about"
+  weight = 10
+
+# [[main]]
+#   name = "portfolio"
+#   pageRef = "portfolio"
+#   weight = 30
+
+[[main]]
+  name = "blog"
+  pageRef = "blog"
+  weight = 20
+
+[[main]]
+  name = "services"
+  pageRef = "services"
+  weight = 40
+
+[[main]]
+  name = "contact"
+  pageRef = "contact"
+  weight = 50
+
+[[main]]
+  pre = "github"
+  identifier = "github"
+  url = "https://github.com/tom-jagus"
+  weight = 9910
+
+[[main]]
+  pre = "x-twitter"
+  identifier = "x-twitter"
+  url = "https://x.com/tom_jagus"
+  weight = 9920
+
+[[main]]
+  pre = "linkedin"
+  identifier = "linkedin"
+  url = "https://www.linkedin.com/in/tom-jagus/"
+  weight = 9930
+
+# [[main]]
+#   pre = "youtube"
+#   identifier = "youtube"
+#   url = ""
+#   weight = 9940
+
+# -- Footer Menu --
+# # [[footer]]
+#   name = "about"
+#   pageRef = "about"
+#   weight = 10
+#
+# [[footer]]
+#   name = "portfolio"
+#   pageRef = "portfolio"
+#   weight = 30
+#
+# [[footer]]
+#   name = "blog"
+#   pageRef = "blog"
+#   weight = 20
+#
+# [[footer]]
+#   name = "services"
+#   pageRef = "services"
+#   weight = 40
+#
+# [[footer]]
+#   name = "contact"
+#   pageRef = "contact"
+#   weight = 50
