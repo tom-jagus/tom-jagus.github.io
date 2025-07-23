@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tom.jagus.me/sitemap.xml

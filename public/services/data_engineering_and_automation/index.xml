@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Engineering and Automation on tom.jagus.me</title>
+    <link>https://tom.jagus.me/services/data_engineering_and_automation/</link>
+    <description>Recent content in Data Engineering and Automation on tom.jagus.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Tom Jagus</copyright>
+    <atom:link href="https://tom.jagus.me/services/data_engineering_and_automation/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>API Integration &amp; Scripting</title>
+      <link>https://tom.jagus.me/services/data_engineering_and_automation/api_integration_and_scripting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/data_engineering_and_automation/api_integration_and_scripting/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Data Pipeline Design</title>
+      <link>https://tom.jagus.me/services/data_engineering_and_automation/data_pipeline_design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/data_engineering_and_automation/data_pipeline_design/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Data Transformation Workflows</title>
+      <link>https://tom.jagus.me/services/data_engineering_and_automation/data_transformation_workflows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/data_engineering_and_automation/data_transformation_workflows/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ETL/ELT Automation</title>
+      <link>https://tom.jagus.me/services/data_engineering_and_automation/etl_elt_automation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/data_engineering_and_automation/etl_elt_automation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Metadata-Driven Automation</title>
+      <link>https://tom.jagus.me/services/data_engineering_and_automation/metadata_driven_automation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/data_engineering_and_automation/metadata_driven_automation/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

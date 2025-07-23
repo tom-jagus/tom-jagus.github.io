@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Architecture and System Design on tom.jagus.me</title>
+    <link>https://tom.jagus.me/services/architecture_and_system_design/</link>
+    <description>Recent content in Architecture and System Design on tom.jagus.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Tom Jagus</copyright>
+    <atom:link href="https://tom.jagus.me/services/architecture_and_system_design/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Data &amp; Reporting Infrastructure Planning</title>
+      <link>https://tom.jagus.me/services/architecture_and_system_design/data_and_reporting_infrastructure_planning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/architecture_and_system_design/data_and_reporting_infrastructure_planning/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Governance &amp; Documentation Patterns</title>
+      <link>https://tom.jagus.me/services/architecture_and_system_design/governance_and_documentation_patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/architecture_and_system_design/governance_and_documentation_patterns/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Reusability &amp; Modularization Strategy</title>
+      <link>https://tom.jagus.me/services/architecture_and_system_design/reusability_and_modularization_strategy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/architecture_and_system_design/reusability_and_modularization_strategy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Solution Architecture</title>
+      <link>https://tom.jagus.me/services/architecture_and_system_design/solution_architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/architecture_and_system_design/solution_architecture/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Toolchain Evaluation &amp; Integration</title>
+      <link>https://tom.jagus.me/services/architecture_and_system_design/toolchain_evaluation_and_integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/architecture_and_system_design/toolchain_evaluation_and_integration/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLMs and AI Workflows on tom.jagus.me</title>
+    <link>https://tom.jagus.me/services/llms_and_ai_workflows/</link>
+    <description>Recent content in LLMs and AI Workflows on tom.jagus.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Tom Jagus</copyright>
+    <atom:link href="https://tom.jagus.me/services/llms_and_ai_workflows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Embedding-Based Search &amp; Retrieval</title>
+      <link>https://tom.jagus.me/services/llms_and_ai_workflows/embedding_based_search_and_retrieval/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/llms_and_ai_workflows/embedding_based_search_and_retrieval/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Generative AI Integration (Text/Data)</title>
+      <link>https://tom.jagus.me/services/llms_and_ai_workflows/generative_ai_integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/llms_and_ai_workflows/generative_ai_integration/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Intelligent Assistant &amp; Prototype Design</title>
+      <link>https://tom.jagus.me/services/llms_and_ai_workflows/intelligent_assistant_and_prototype_design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/llms_and_ai_workflows/intelligent_assistant_and_prototype_design/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LLM-Powered Automation</title>
+      <link>https://tom.jagus.me/services/llms_and_ai_workflows/llm_powered_automation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/llms_and_ai_workflows/llm_powered_automation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Prompt Engineering &amp; Tuning</title>
+      <link>https://tom.jagus.me/services/llms_and_ai_workflows/prompt_engineering_and_tuning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/llms_and_ai_workflows/prompt_engineering_and_tuning/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

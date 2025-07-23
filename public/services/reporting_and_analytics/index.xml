@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reporting and Analytics on tom.jagus.me</title>
+    <link>https://tom.jagus.me/services/reporting_and_analytics/</link>
+    <description>Recent content in Reporting and Analytics on tom.jagus.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Tom Jagus</copyright>
+    <atom:link href="https://tom.jagus.me/services/reporting_and_analytics/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Analytics Process Optimization</title>
+      <link>https://tom.jagus.me/services/reporting_and_analytics/analytics_process_optimization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/reporting_and_analytics/analytics_process_optimization/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Power BI Model Development</title>
+      <link>https://tom.jagus.me/services/reporting_and_analytics/power_bi_model_development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/reporting_and_analytics/power_bi_model_development/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Report Performance Tuning</title>
+      <link>https://tom.jagus.me/services/reporting_and_analytics/report_performance_tuning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/reporting_and_analytics/report_performance_tuning/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Self-Service Reporting Enablement</title>
+      <link>https://tom.jagus.me/services/reporting_and_analytics/self_service_reporting_enablement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/reporting_and_analytics/self_service_reporting_enablement/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Semantic Layer Design (DAX, TMDL)</title>
+      <link>https://tom.jagus.me/services/reporting_and_analytics/semantic_layer_design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tom.jagus.me/services/reporting_and_analytics/semantic_layer_design/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
