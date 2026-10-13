@@ -4,7 +4,7 @@
 
 Tom accepted the folder structure, simple YAML frontmatter, homepage selection rules, shared introductions, and separation of editorial content from presentation. The custom homepage/article templates now use this contract. The old Blowfish content and duplicate/generated files have been removed from the working tree. Original content remains in Git history; see the [old URL inventory and recovery instructions](old-urls.md).
 
-The homepage selection rules, `github_url`, internal video collection, and responsive generated TOC are implemented. Services now lists only its five H2 offers in the same responsive side TOC. The Work index supports bundle images with a shared abstract fallback; index entries and project pages share stage boxes and repository links near titles. These layout changes await visual review. Launch copy and old-link handling are still outstanding.
+The homepage selection rules, `github_url`, internal video collection, and responsive generated TOC are implemented. Services now lists only its five H2 offers in the same responsive side TOC. The Work index supports bundle images with a shared abstract fallback; index entries and project pages share stage boxes and repository links near titles. The initial release includes reviewed Home, About, Services, and Contact copy. Work and Writing have prepared introductions but keep their sample entries as drafts. Tom chose not to preserve legacy URLs.
 
 ## Accepted folders
 
@@ -39,13 +39,13 @@ Project, writing, and video entries use page bundles so their assets stay with t
 
 The homepage Markdown body holds its introduction. Services remains one page with the five offers as sections. Index Markdown bodies hold their collection introductions.
 
-About, Contact, and Services now have dedicated layouts and draft sample bodies. Work/Writing indexes and sample bundles also remain drafts for local review. Change a collection index from draft only when it has reviewed launch entries.
+About, Contact, and Services have dedicated layouts and `draft: false`. Work/Writing indexes have reviewed introductions but remain drafts with sample bundles for later content work. Change a collection index from draft only when it has reviewed launch entries.
 
-Internal `shared/services.md` and `shared/contact.md` keep the reusable introductions available independently of those page drafts. Their collection cascades `build.render: never`, `build.list: never`, and `build.publishResources: false`, so it generates no routes, feed items, or assets. These sources remain non-draft and hold the existing approved short copy.
+Internal `shared/services.md` and `shared/contact.md` keep reusable introductions separate from standalone page copy. Their collection cascades `build.render: never`, `build.list: never`, and `build.publishResources: false`, so it generates no routes, feed items, or assets. These sources remain non-draft. The homepage uses the shared service introduction; Services has its own introduction and engagement explanation. Contact invitations render only when the Contact page is available.
 
 ## Accepted frontmatter
 
-Every editorial entry has `title`, `description`, and `draft` in YAML. Start unpublished entries with `draft: true`. Use `layout` only when a page needs a dedicated template. The Markdown body contains the substantive content, without layout shortcodes. Use `aliases` only to preserve confirmed useful old URLs.
+Every editorial entry has `title`, `description`, and `draft` in YAML. Start unpublished entries with `draft: true`. Use `layout` only when a page needs a dedicated template. The Markdown body contains the substantive content, without layout shortcodes. No legacy aliases or redirects are planned for this release.
 
 | Content | Additional fields |
 | --- | --- |
@@ -53,7 +53,7 @@ Every editorial entry has `title`, `description`, and `draft` in YAML. Start unp
 | Writing | `date` for first publication. Optional `lastmod` for substantive updates and `toc` to enable a generated contents list. |
 | Videos | `date`, `watch_url`, `thumbnail`, and `format`. Use `video` or `livestream-recording` for the format. A body is not needed initially. |
 | Shared service/contact copy | A Markdown-enabled `intro` field for short copy reused by other templates. Shared Services H2 headings supply homepage offer names; the shared Contact title supplies the invitation heading. |
-| Services page | Optional `contact_heading` and Markdown-enabled `contact_intro` for the service-specific invitation. |
+| Services page | Markdown-enabled `intro` for its opening and engagement explanation. Optional `contact_heading` and Markdown-enabled `contact_intro` for the service-specific invitation. |
 | Review samples | Optional `review_note` to explain that the draft uses sample copy. It is displayed only when `draft: true`. |
 
 Hugo's native `url` overrides the generated page address; do not use it for an external GitHub or video link. Video entries use the accepted `watch_url` field. Projects use `github_url`, supplied when a public repository exists.
@@ -79,7 +79,7 @@ The existing `status` field supplies the same labelled stage box on the index an
 
 Use Hugo's generated `.TableOfContents` when `toc: true`, rather than maintain a separate list of links. The default is off, with authors enabling it when useful.
 
-Services always generates its contents from H2 offers only, excluding the repeated H3 contribution/output/boundary headings. It shares the article contents component and responsive behavior.
+Services generates its contents from its five H2 offers only. It shares the article contents component and responsive behavior.
 
 On wide screens, put the TOC in a restrained sticky right-hand column, offset below the header, while preserving the reading width. On narrower screens, move it above the article body as a collapsible contents block. Short entries omit it by default. Do not render a TOC when no usable headings exist.
 

@@ -31,6 +31,10 @@ The accepted [layout brief](../design/layout.md) owns page structure, URL conven
 
 Deploy build artifacts rather than commit generated HTML. Keep selected brand assets in this repository with their source recorded, without making deployment depend on the brand repository.
 
+The initial release contains Home, About, Services, and Contact. Keep Work, Writing, and Video samples unpublished until real content is reviewed. Search indexing is enabled for published pages. Do not preserve legacy URLs for this release, as Tom requested. The automated test suite is removed; retain the pinned toolchain, warning-failing production build, and manual output/browser review.
+
+Use Reach out links to Contact and an Email me button only on Contact. Omit the initial-message warning at Tom's request. Social sharing uses the circular avatar on a 1200 by 630 Mocha background.
+
 ## Boundaries
 
 - Apply the existing brand rather than redesign it.
@@ -45,7 +49,7 @@ Deploy build artifacts rather than commit generated HTML. Keep selected brand as
 - Routine content updates require Markdown edits, not template changes.
 - The site works on mobile and with keyboard navigation, readable contrast, and enlarged text.
 - Production builds exclude drafts and have no broken internal links.
-- Metadata, canonical URLs, sitemap, RSS where relevant, and handling of old URLs are checked.
+- Metadata, canonical URLs, sitemap, and RSS where relevant are checked. Legacy URL removal is intentional.
 - GitHub Actions builds and deploys the reviewed site to GitHub Pages.
 
 See [progress and action plan](progress.md) for the current state and next steps.

@@ -1,6 +1,6 @@
-# Local tooling and review builds
+# Local development and deployment
 
-The rewrite uses ordinary Hugo Extended 0.167.0. `mise.toml` and `.github/workflows/hugo.yml` pin the same version. CI checks both pins and the downloaded edition. Building the custom layouts does not need Blowfish, Dart Sass, Node, or the brand repository.
+The site uses ordinary Hugo Extended 0.167.0. `mise.toml` and `.github/workflows/hugo.yml` pin the same version. CI verifies the download checksum, edition, and local pin. Building the site does not need Blowfish, Dart Sass, Node, or the brand repository.
 
 ## Install
 
@@ -11,28 +11,23 @@ mise install hugo-extended
 mise exec -- hugo version
 ```
 
-The output should identify `v0.167.0` and `+extended`, without `+withdeploy`. There are no theme dependencies or Git submodules to initialize.
+The output should identify `v0.167.0` and `+extended`, without `+withdeploy`. There are no theme dependencies or Git submodules.
 
-## Preview the templates
+## Preview
+
+To preview production content:
 
 ```bash
-mise exec -- hugo server \
-  --buildDrafts \
-  --renderToMemory \
-  --noBuildLock \
-  --bind 127.0.0.1 \
-  --port 1313
+mise exec -- hugo server --renderToMemory --noBuildLock --bind 127.0.0.1 --port 1313
 ```
 
-Open `http://127.0.0.1:1313/`. Review `/about/`, `/contact/`, `/services/`, `/work/`, `/work/website-rewrite/`, `/writing/`, `/writing/layout-note/`, and `/writing/publishing-workflow/` on that server. Stop it with Ctrl+C. The new pages and collection entries are labelled draft/sample material, not approved launch copy. Their dates and examples do not establish a publishing history. Keep this preview local.
+Open `http://127.0.0.1:1313/`. Home, About, Services, and Contact are approved for inclusion. To also review the unpublished Work, Writing, and Video samples, add `--buildDrafts`. Keep that preview local. Draft status controls generated output, not access to Markdown in a public repository.
 
-Article and Services TOCs share the sticky right column at wide widths and collapse above the body on narrow screens. Services lists only its five offers, not their subsections. Both TOCs use native details navigation and stay open without JavaScript. The homepage cursor starts blinking only after its pause control is available; reduced motion and JavaScript-disabled browsing leave it still.
+Shared page headers show a draft review notice in Mocha red when applicable, followed by the description in peach and the page title. Published pages omit the notice. Reach out links open Contact; only Contact has an Email me button with a mailto link.
 
-The custom Hugo pages are the current layout preview. Lists span the homepage container. Reading titles and paragraphs align with its left edge, with paragraphs kept at roughly 60 characters and figures/code allowed wider. Without a TOC, there is no reserved sidebar. About, Contact, and Services now have dedicated layouts and draft sample copy. Work now uses image-and-copy rows, with an optional bundle image or shared abstract default. Index entries and project pages display the same stage box from `status`, with repository links near titles. These changes still need Tom's visual review.
+Article and Services contents lists use a sticky right column on wide screens and a collapsible block above the body on narrow screens. Services lists its five offers. Without JavaScript, the contents stay open and ordinary navigation remains available. The homepage cursor has a pause toggle and stays still with reduced motion or without JavaScript.
 
-In draft preview, the homepage's About me and Explore services links point to the separate pages. Contact me opens `/contact/`; Email me on that page opens the email client.
-
-## Production-content check
+## Check production output
 
 ```bash
 mise exec -- hugo \
@@ -44,58 +39,36 @@ mise exec -- hugo \
   --buildExpired=false
 ```
 
-Output goes to ignored `build/public/`, and generated resources go to `build/resources/`. Hugo cleans the destination when rebuilding, including stale draft output. Do not commit generated output. Root-level `public/`, `resources/`, and the Hugo lock file are also ignored as a guard against alternate build commands. A build is not publication.
+Output goes to ignored `build/public/`, with generated resources in `build/resources/`. Hugo cleans the destination when rebuilding, including stale draft output. Do not commit generated HTML. A local build is not publication.
 
-The current production output contains the approved homepage introduction and shared service/contact copy, without draft collections or their navigation links. The expanded About, Contact, and Services sample pages remain drafts and are excluded. Internal `content/shared/` sources supply the existing service/contact introductions without generating routes. When the Contact draft is excluded, the header falls back to the homepage invitation and its button retains the direct Email me action, avoiding a broken link. All generated pages request no indexing, and `robots.txt` disallows crawling during review. Neither measure is access control.
+The initial production site contains Home, About, Services, Contact, and the 404 page. Work, Writing, and Videos remain draft-only. Search indexing is enabled, and `robots.txt` allows crawling and links to the sitemap. Draft pages retain noindex metadata when previewed.
 
-## Content during conversion
+Before publishing a change, inspect the generated routes, follow the affected links, check images and metadata, and review the pages at mobile and desktop widths. The automated test suite has been removed at Tom's request. CI checks the Hugo toolchain and fails the build on warnings, but does not replace link, accessibility, or browser review.
 
-- `content/` uses the accepted [Markdown/frontmatter structure](design/content.md). Do not add layout shortcodes.
-- The old theme, archived content, generated trees, unused assets, and standalone static preview have been removed. Original content remains in Git history; the untracked preview has a verified external backup. See the [old URL inventory and recovery instructions](design/old-urls.md) before planning aliases or redirects.
-- `archetypes/default.md` creates YAML drafts with `title`, `description`, and `draft`. Fill in the description and add date/collection-specific fields as needed; the default does not invent a publication date.
-- Leave sample pages and bundles as `draft: true`. When a collection has real launch material, review its entries and change its index from draft as well.
-- The homepage's `selected_work` list controls project order. Writing and internal videos select the latest two entries by `date`.
-- Work-index custom `image` files must exist in their project bundle and have `image_alt`. Without an image, the index uses the decorative `project-default.svg`. Homepage project cards remain text-only.
-- Project `status` text supplies the stage box on the index and detail page. Known stages receive the tints documented in the content contract; custom stages stay neutral. Missing status/repository metadata is omitted.
-- All 26 Catppuccin Mocha colors are CSS custom properties in `:root`, for example `var(--green)` and `var(--surface1)`. Existing color roles stay unchanged.
-- Video entries have no public HTML routes. Only referenced thumbnails are published, and videos are excluded from RSS and the sitemap.
-- `content/shared/contact.md` and `content/shared/services.md` own the reusable Markdown-enabled `intro` fields. The shared Contact title is the invitation heading, separate from the Contact page H1. Homepage service names come from the shared Services H2 headings; tests keep them consistent with the full page.
-- About, Contact, and Services Markdown bodies hold the expanded copy. The Services page generates its jump links from those headings and has optional `contact_heading`/`contact_intro` fields for its service-specific invitation.
-- The shared collection renders no pages or assets and appears in no public listing. Keep it non-draft so homepage introductions remain available independently of the expanded page drafts.
-- Exact social URLs are still unconfirmed. Their configuration is empty, so no placeholder profile links are rendered.
+## Content updates
 
-See [asset sources](design/assets.md) for the copied brand assets and fonts. The build publishes only `static/site/`, not the old static collection.
+- Use the [Markdown/frontmatter structure](design/content.md). Do not add layout shortcodes.
+- The default archetype creates YAML drafts without an invented publication date. Fill in the description and any collection-specific fields.
+- Keep samples as `draft: true`. Publish real entries and their collection indexes together when reviewed.
+- Homepage `selected_work` controls project order. Writing and internal videos select the latest two published entries by date.
+- Work images must be bundle resources with `image_alt`. Without an image, the index uses a decorative abstract diagram. Homepage project cards remain text-only.
+- Project `status` supplies the stage box. Missing status and repository links are omitted.
+- Videos have no public HTML routes. Only referenced thumbnails are published, and videos stay out of RSS and the sitemap.
+- Shared service/contact introductions live in non-rendering `content/shared/` sources. Services has its own `intro` for its opening and engagement explanation.
+- `config/_default/params.toml` holds contact details, supplied social URLs, asset names, and the indexing setting.
+- The site publishes only `static/site/`. The existing desktop and mobile backgrounds remain unchanged.
+- Historical content remains in Git. No legacy redirects will be added for this launch; see the [old URL inventory](design/old-urls.md).
 
-## Repository layout
-
-```text
-.github/workflows/   Build-only review CI
-archetypes/          YAML content starter
-assets/              CSS and JavaScript source
-config/_default/     Hugo settings and navigation
-content/             Markdown pages, bundles, and internal shared copy
-docs/                Development, design, and project context
-layouts/             Custom Hugo templates
-static/site/         Brand assets and licensed fonts
-tests/               Temporary-build checks
-mise.toml            Exact Hugo Extended pin
-.gitignore           Generated output and cache exclusions
-```
-
-`build/` is created locally when needed and is not repository source.
-
-## Tests
-
-```bash
-mise exec -- python -m unittest discover -s tests -v
-```
-
-Python 3.11 or newer is needed for the tooling/CI checks. The build tests use the standard library and temporary directories. They check YAML draft creation, draft/future/expired exclusion, stale-output cleanup, homepage selection, internal video resources, generated TOC links, standalone-page routing, service jump links, project images/stages/repositories, the full Mocha palette, feeds, metadata, asset integrity, subpath URLs, and internal links. They do not replace browser or assistive-technology checks.
+See [asset sources and regeneration](design/assets.md) for the avatar, sharing image, favicon, and fonts.
 
 ## GitHub Actions
 
-The workflow builds on pushes to `main` or `feat/website-rewrite`, pull requests targeting `main`, and manual runs. It verifies the exact ordinary Extended archive's SHA-256, runs the template tests, and uploads a `hugo-review-<commit>` artifact retained for seven days.
+The workflow builds on pushes to `main` and `feat/website-rewrite`, pull requests targeting `main`, and manual runs. Every build excludes drafts, future entries, and expired entries, and uses `https://tom.jagus.me/` as its base URL.
 
-There is no submodule checkout, Pages setup, deployment job, or Pages write permission. Output goes to the runner's temporary directory. Keep this workflow build-only until publication is separately authorized. Unpushed workflow edits do not change the remote deployment setup.
+Non-production branches and pull requests upload a `hugo-review-<commit>` artifact retained for seven days. Pushes to `main`, and manual runs on `main`, upload a Pages artifact and deploy it through the `github-pages` environment. Pull requests never deploy. Only the deploy job has Pages write and OIDC permissions.
 
-Review artifacts are not private storage. Keep draft rendering disabled in CI and confidential material out of the repository.
+Main-branch runs are not canceled automatically, and deployment jobs share the `pages` concurrency group. The workflow does not install Python test dependencies or run the removed test suite; its toolchain check uses Python 3.11 or newer already available on the runner.
+
+GitHub Pages must use GitHub Actions as its source, with `tom.jagus.me` as the custom domain and HTTPS enabled. Those settings were verified during the local launch audit. The updated workflow still needs a successful GitHub-hosted run after an explicitly authorized push or merge. Editing this file does not publish the website.
+
+Review artifacts and public source are not private storage. Keep confidential material out of the repository.

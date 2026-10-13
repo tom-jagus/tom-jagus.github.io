@@ -8,9 +8,6 @@
       {{- $href = $target.RelPermalink -}}
     {{- end -}}
   {{- end -}}
-  {{- if and (not $href) (eq .Identifier "contact") (site.GetPage "/shared/contact") -}}
-    {{- $href = printf "%s#contact" site.Home.RelPermalink -}}
-  {{- end -}}
   {{- with $href }}
     <a href="{{ . }}"{{ if and $target (eq $target.RelPermalink $current.RelPermalink) }} aria-current="page"{{ else if and $target $target.IsSection (eq $target.Section $current.Section) }} aria-current="location"{{ end }}>{{ $label }}</a>
   {{- end -}}

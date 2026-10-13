@@ -185,8 +185,6 @@ a.button:hover { background: #c5cdff; color: var(--mantle); text-decoration: non
 .contact-actions .button { background: var(--blue); border-color: var(--blue); }
 .contact-actions .button:hover { background: color-mix(in srgb, var(--blue) 85%, white); }
 .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; min-width: 0; }
-.contact-actions .contact-email { font-size: .9375rem; }
-.contact-actions .meta { max-width: 30ch; }
 
 .site-footer { background: var(--mantle); border-top: 1px solid var(--surface); padding-block: 2rem; }
 .footer-main { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 1.5rem; }
@@ -248,10 +246,11 @@ pre { overflow-wrap: normal; }
 .article-header { margin-block: 1.5rem 2rem; }
 .article-heading .article-header { margin-bottom: 0; }
 .article-header h1 { font-size: clamp(2rem, 3.6vw, 2.75rem); margin-block: .75rem 1.25rem; font-weight: 700; }
-.article-header .lede { max-width: var(--reading-width); color: var(--text); font-size: 1.0625rem; }
 .article-header .meta { margin-top: 1.25rem; }
 .article-header .project-repository { margin-top: 0; margin-bottom: .75rem; }
-.article-note { margin-bottom: 2rem; color: var(--peach); }
+.article-note, .article-summary { margin-bottom: 2rem; }
+.article-note { color: var(--red); }
+.article-summary { max-width: var(--reading-width); color: var(--peach); }
 .contents { padding-block: 1.5rem; margin-bottom: 2.5rem; border-block: 1px solid var(--surface); }
 .contents summary { min-height: 44px; padding-block: .5rem; font-weight: 700; cursor: pointer; }
 .toc-title { display: none; margin-bottom: .5rem; font-size: 1rem; font-weight: 700; }

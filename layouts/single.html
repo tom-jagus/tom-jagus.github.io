@@ -13,9 +13,11 @@
   <div class="article-content">
     <div class="prose">{{ .Content }}</div>
     {{ if eq .Section "writing" }}
+      {{ with site.GetPage "/contact" }}{{ if and .RelPermalink (in site.Pages .) }}
       <footer class="article-end">
-        <p class="measure">Have a question about something here? <a href="mailto:{{ site.Params.email }}">Email me</a>.</p>
+        <p class="measure">Have a question about something here? <a href="{{ .RelPermalink }}">Reach out</a>.</p>
       </footer>
+      {{ end }}{{ end }}
     {{ end }}
   </div>
 </article>

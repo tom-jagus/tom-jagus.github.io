@@ -1,7 +1,9 @@
 {{ define "main" }}
 <article class="page-layout" aria-labelledby="article-title">
   {{ partial "page-header.html" . }}
-  {{ partial "contact-panel.html" (dict "email_action" true) }}
-  <div class="prose">{{ .Content }}</div>
+  <div class="prose">
+    {{ .Content }}
+    <p class="contact-actions"><a class="button" href="mailto:{{ site.Params.email }}">Email me <span class="arrow" aria-hidden="true">↗</span></a></p>
+  </div>
 </article>
 {{ end }}

@@ -4,10 +4,10 @@
 <article class="page-layout article-layout services-layout{{ if $hasToc }} article-layout--toc{{ end }}" aria-labelledby="article-title">
   <div class="article-heading">
     {{ partial "page-header.html" . }}
-    {{ with site.GetPage "/shared/services" }}<div class="prose">{{ .RenderString (dict "display" "block") .Params.intro }}</div>{{ end }}
+    {{ with .Params.intro }}<div class="prose">{{ $.RenderString (dict "display" "block") . }}</div>{{ end }}
   </div>
   {{ if $hasToc }}{{ partial "contents.html" (dict "page" . "label" "Services" "items" $services) }}{{ end }}
   <div class="article-content"><div class="prose">{{ .Content }}</div></div>
-  {{ partial "contact-panel.html" (dict "email_action" false "heading" .Params.contact_heading "intro" .Params.contact_intro) }}
+  {{ partial "contact-panel.html" (dict "heading" .Params.contact_heading "intro" .Params.contact_intro) }}
 </article>
 {{ end }}

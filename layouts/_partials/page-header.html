@@ -1,8 +1,8 @@
 <header class="article-header">
   {{ if .Draft }}<p class="article-note meta">{{ .Params.review_note | default "Draft for private review. Not published." }}</p>{{ end }}
+  {{ with .Description }}<p class="article-summary meta">{{ . }}</p>{{ end }}
   <h1 id="article-title">{{ .Title }}</h1>
   {{ with .Params.github_url }}<a class="text-link meta project-repository" href="{{ . }}">View repository on GitHub <span class="arrow" aria-hidden="true">↗</span></a>{{ end }}
-  {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
   {{ if and .IsPage (eq .Section "work") }}{{ partial "project-stage.html" . }}{{ end }}
   {{ if and .IsPage (not .Date.IsZero) }}
     <p class="meta">{{ if .Draft }}Sample date{{ else }}Published{{ end }} <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format site.Params.date_format }}</time>{{ if gt .Lastmod .Date }} · Updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format site.Params.date_format }}</time>{{ end }}</p>

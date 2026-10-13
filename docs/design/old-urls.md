@@ -2,7 +2,7 @@
 
 This inventory records the tracked legacy HTML and RSS output at commit `4292a286e97648002a9c261fe3a24c207ce1160f`, before repository cleanup. It is evidence of stored output, not a check of live routes, traffic, or incoming links.
 
-There were 47 HTML routes and 12 RSS routes. Decide which old links are useful before launch. No redirects or aliases were added during cleanup.
+There were 47 HTML routes and 12 RSS routes. Tom chose not to preserve legacy URLs for this release, reporting that the previous site had no traffic. No redirects or aliases will be added. Removed paths will return 404 after the new site is deployed.
 
 ## Paths kept by the rewrite
 
@@ -11,7 +11,7 @@ There were 47 HTML routes and 12 RSS routes. Decide which old links are useful b
 - `/contact/`
 - `/services/`
 
-The separate pages are currently drafts. Keeping their intended paths does not mean they are already published.
+These four pages are included in the production build. Local preparation does not confirm that the replacement has been deployed.
 
 ## Old collections and generated navigation
 
@@ -26,11 +26,11 @@ The separate pages are currently drafts. Keeping their intended paths does not m
 /tags/
 ```
 
-Review whether `/blog/` should lead to `/writing/` once it has launch content. Taxonomy and pagination routes do not have automatic replacements. Do not redirect unrelated pages to Home merely to avoid a 404.
+These routes will not have replacements. Writing remains unpublished until it has real reviewed content.
 
 ## Old service pages
 
-These are the former service categories and write-ups. The new Services page uses the five current brand offers instead. Any useful links need a reviewed destination, potentially a matching section on `/services/`.
+These are the former service categories and write-ups. The new Services page uses the five current brand offers instead. The old detail pages will not redirect to the new offers.
 
 ```text
 /services/advisory_and_enablement/
@@ -87,7 +87,7 @@ These are the former service categories and write-ups. The new Services page use
 /tags/index.xml
 ```
 
-The new general feed retains `/index.xml`. Section feeds are not configured. Review old subscribers before deciding whether other feed URLs need replacements.
+The new general feed retains `/index.xml`. Section feeds are not configured, and old section feed URLs will not have replacements.
 
 ## Historical content and design recovery
 

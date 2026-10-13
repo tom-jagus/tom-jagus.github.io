@@ -2,7 +2,7 @@
 
 ## Status and references
 
-Tom approved the static homepage and article designs, including continuous cursor blinking and a bold article title. Tom also accepted a desktop-right/mobile-collapsible article TOC. The Hugo reading template now implements that TOC. The original static design study is archived outside the repository; Hugo's draft server is the current preview. Tom also accepted full-width list layouts and left-aligned reading content, retaining a readable paragraph measure rather than full-width long paragraphs. About and Contact have draft sample layouts. Services now uses the article-style side TOC, and Work has an image-led index with stage boxes and repository links near titles. The latest Services/Work changes await review. Dimensions below are reviewed starting points, not fixed acceptance values.
+Tom approved the static homepage and article designs, including continuous cursor blinking and a bold article title. Tom also accepted a desktop-right/mobile-collapsible article TOC. The Hugo reading template now implements that TOC. The original static design study is archived outside the repository; Hugo's draft server is the current preview. Tom also accepted full-width list layouts and left-aligned reading content, retaining a readable paragraph measure rather than full-width long paragraphs. Home, About, Services, and Contact are approved for the initial release. Services uses the article-style side TOC, and Work has an image-led index with stage boxes and repository links near titles. Work and Writing retain unpublished samples for later content work. Dimensions below are reviewed starting points, not fixed acceptance values.
 
 The [project definition](../project/definition.md) owns scope and technology. Use `~/src/default/brand-identity/docs/brand/` for identity, messaging, services, visual usage, and asset handoff. Consult `docs/kits/channels.md` in that repository for website guidance. Its `samples/identity.html` is a visual reference, not a required layout or the source of current copy.
 
@@ -19,15 +19,15 @@ The site balances personal perspective, public work, writing, and consulting. Us
 | Work | `/work/` | Full-width entries with a bundle image or shared abstract default, title, nearby repository link, short description, and a labelled stage box. Stack image and copy on narrow screens. |
 | Project | `/work/project-name/` | Use the reading layout, with a repository link directly below the title and the same labelled stage box as the index. Explain the problem, constraints, contribution, choices, results, and limitations where relevant. |
 | Writing | `/writing/` | A simple list of articles and notes with descriptions and dates. Use the label Writing, not Articles or Blog. |
-| Article | `/writing/article-title/` | A readable article with a title, summary, relevant date, and narrow body column. Keep dates out of URLs. |
+| Article | `/writing/article-title/` | A readable article with a description above the title, relevant date, and narrow body column. Keep dates out of URLs. |
 | Services | `/services/` | One page with the service introduction and five current offers. List the offers in the same desktop-right/mobile-collapsible TOC as articles, excluding H3 subsections. Keep the final contact invitation full-width. |
-| Contact | `/contact/` | The approved general invitation, selectable email address, Email me action, and reminder to avoid confidential information. No form initially. |
+| Contact | `/contact/` | A short personal invitation and an Email me button that opens the email client. No form or initial-message warning. |
 
 Project pages describe projects. Writing explores subjects and lessons, with links to related projects rather than duplicate write-ups. Do not add index filters until content volume warrants them.
 
 For writing with `toc: true`, generate the contents from Markdown headings. On wide screens, use a restrained sticky right-hand column, offset below the header, without reducing the reading width. On narrow screens, use a collapsible contents block above the body. Omit the TOC by default, and do not render an empty contents list. Project pages may also have contents navigation where useful. Images, diagrams, and code can extend wider than prose. Match the homepage's outer container and left alignment for reading titles and body content, with paragraphs around 60–65 characters wide. Without a TOC, reserve no sidebar and allow figures/code to use the full container. List headings and entries span the full container. Do not force every project into identical headings.
 
-The intended structure includes Work and Writing, but do not launch empty pages or navigation destinations. Confirm actual launch content first. Review `/blog/` and other paths in the [old URL inventory](old-urls.md) and preserve useful links through appropriate static redirects or aliases.
+The intended structure includes Work and Writing, but do not launch empty pages or navigation destinations. Publish those collections when they have reviewed entries. Tom chose not to preserve legacy URLs; the [old URL inventory](old-urls.md) remains a historical reference.
 
 ## Shared header and footer
 
@@ -48,7 +48,7 @@ Use the personal-introduction layout with selected work, in this order:
 5. Latest writing, as a short list rather than a card grid.
 6. Recent videos, initially up to two thumbnail entries.
 7. Work with me, with a heading spanning the section. Below it, align the introduction and service-list columns at the same starting height. Include an Explore services link in the final site.
-8. The approved general contact invitation in a blue-tinted panel with a blue Contact me button linking to the separate Contact page and Mantle button text. On wide screens, put the invitation on the left and the selectable email address, Contact me button, and initial-message note on the right. Stack on narrow screens.
+8. The general contact invitation in a blue-tinted panel with a blue Reach out button linking to Contact and Mantle button text. On wide screens, put the invitation on the left and the button on the right. Stack on narrow screens. Do not display the email address or an initial-message warning in this panel.
 9. Shared footer.
 
 Omit collections without publishable content. Do not add placeholders to imply a portfolio, publication history, or schedule. Keep the professional title in service-related contexts rather than leading every page with it.
@@ -71,7 +71,7 @@ Automatic live detection and a dedicated `/live/` page are deferred options, not
 
 ## Contact emphasis
 
-Keep Contact visible in the header. Use Contact me for an action that opens the Contact page. Use Email me for actions that open an email client at `contact@jagus.me`, including the Contact page's main action. During draft review, if the Contact page is excluded from a build, the homepage retains Email me instead of linking to an unavailable route.
+Keep Contact visible in the header. Use Reach out for actions that open Contact. Only Contact has an Email me button with a mailto link to `contact@jagus.me`. If Contact is excluded from a build, omit its navigation link and contextual invitations rather than display a direct-email fallback.
 
 Place the general invitation near the end of Home and About. Services gets the service-specific invitation after the offers. Project pages may include a relevant invitation; articles should use a quiet discussion invitation rather than a sales panel. Avoid repeated, heavy sales prompts.
 
@@ -89,8 +89,10 @@ Do not promise response times, availability, or social messaging without confirm
 - Continuous cursor blinking needs a pause or hide control before publication. The Hugo homepage now has a keyboard-operable pause toggle and keeps the cursor still without JavaScript or with reduced motion. The archived static study had only a reduced-motion fallback; it is not the current implementation.
 - Stack columns before text becomes cramped. Check keyboard navigation, visible focus, 44px button targets, 320px reflow, 200% text enlargement, 4.5:1 text contrast, and 3:1 meaningful control/focus contrast. A full light theme is not required.
 
-## Next layout work
+## Publishing and later work
 
-Use the approved homepage and article as the basis for the remaining page types. Use the accepted Markdown/frontmatter inputs in the content structure when converting to Hugo. Use real approved copy where available and clearly labeled sample material only for private layout review.
+Shared page headers show draft review notices in Mocha red above the peach descriptions, followed by the page titles. Published pages omit the notices. The homepage keeps its own introduction layout.
 
-Confirm publishable launch material, exact social profile URLs, and the livestream platform before activating those sections. Further source implementation still requires explicit approval; this brief does not grant it.
+The avatar is the supplied JPEG displayed with the existing circular CSS crop. Social sharing uses the same crop as a circle centered on a 1200 by 630 Mocha background; see [asset sources](assets.md).
+
+Social profile URLs are supplied in site configuration. Work, Writing, and Videos remain unpublished until they have real reviewed entries. The livestream platform and announcement behavior remain undecided; do not display notices until they are agreed. Further implementation requires its own approval.

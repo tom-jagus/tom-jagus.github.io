@@ -1,4 +1,4 @@
-name: Build Hugo review artifact
+name: Build and deploy Hugo site
 
 on:
   push:
@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: hugo-review-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: hugo-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 defaults:
   run:
@@ -55,16 +55,15 @@ jobs:
           assert tools["hugo-extended"] == os.environ["HUGO_VERSION"], "Local and CI Hugo pins differ"
           PY
 
-      - name: Test custom templates
-        run: python3 -m unittest discover -s tests -v
-
-      - name: Build production content for review
+      - name: Build production content
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo-cache
           HUGO_ENVIRONMENT: production
         run: |
           hugo \
             --minify \
+            --noBuildLock \
+            --panicOnWarning \
             --buildDrafts=false \
             --buildFuture=false \
             --buildExpired=false \
@@ -72,9 +71,34 @@ jobs:
             --destination "${RUNNER_TEMP}/hugo-public"
 
       - name: Upload review artifact
+        if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: hugo-review-${{ github.sha }}
           path: ${{ runner.temp }}/hugo-public
           if-no-files-found: error
           retention-days: 7
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/hugo-public
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

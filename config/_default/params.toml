@@ -2,16 +2,16 @@ name = "Tom Jagus"
 brand_line = "Designing better ways of working."
 description = "I design workflows, build tools, and explore how people and software work together."
 email = "contact@jagus.me"
-contact_note = "Please keep your initial message brief and avoid confidential information."
 date_format = "January 2, 2006"
 wordmark = "wordmark.svg"
-avatar = "avatar.png"
-# Keep the unfinished rewrite out of search indexes until launch review.
-noindex = true
+avatar = "avatar.jpg"
+share_image = "social-share.jpg"
+share_image_alt = "Illustrated portrait of Tom Jagus in a circle on a dark background."
+noindex = false
 
 # Add only confirmed profile URLs. The footer keeps this order.
 [social]
-  youtube = ""
-  github = ""
-  x = ""
-  linkedin = ""
+  youtube = "https://www.youtube.com/@tomjagus"
+  github = "https://github.com/tom-jagus"
+  x = "https://x.com/tom_jagus"
+  linkedin = "https://linkedin.com/in/tom-jagus"

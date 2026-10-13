@@ -1,17 +1,11 @@
 ---
 title: "Contact"
-description: "Get in touch about a question, collaboration, or work you would like to improve."
-draft: true
+description: "Have a question, an idea, or a project in mind?"
+draft: false
 layout: contact
-review_note: "Draft for private review. Sample copy, not approved for publication."
+review_note: "Draft for private review. Not approved for publication."
 ---
 
-## What to include
+I'd like to hear from you, whether something I've shared raised a question or you have an idea you'd like to talk through.
 
-A short message is enough to start. You can mention:
-
-- The question, idea, or work you would like to discuss.
-- What is happening today and what you would like to change.
-- Any constraints that would help me understand the situation.
-
-You do not need a finished brief or a solution already in mind. Please avoid confidential information in your initial message.
+If you're getting in touch about work you'd like help with, tell me a little about what's happening and what you'd like to change. You don't need to have it all worked out before you write.
