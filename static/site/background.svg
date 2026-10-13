@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="none">
+  <!-- Website geometry inspired by the brand's YouTube banner, without lettering. -->
+  <g fill="none" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#89B4FA">
+      <path d="M0 145H200Q230 145 230 175V245Q230 275 260 275H550Q580 275 580 245V0" stroke-opacity=".16" vector-effect="non-scaling-stroke"/>
+      <rect x="65" y="50" width="300" height="165" rx="30" stroke-opacity=".12" vector-effect="non-scaling-stroke"/>
+      <path d="M1130 0V65Q1130 95 1160 95H1260Q1290 95 1290 125V250Q1290 280 1320 280H1600" stroke-opacity=".16" vector-effect="non-scaling-stroke"/>
+      <rect x="1300" y="135" width="255" height="200" rx="30" stroke-opacity=".12" vector-effect="non-scaling-stroke"/>
+      <path d="M1160 0V460Q1160 490 1190 490H1370Q1400 490 1400 520V1000" stroke-opacity=".18" vector-effect="non-scaling-stroke"/>
+      <path d="M1310 0V595Q1310 625 1280 625H1140Q1110 625 1110 655V1000" stroke-opacity=".14" vector-effect="non-scaling-stroke"/>
+      <rect x="1220" y="440" width="275" height="330" rx="30" stroke-opacity=".14" vector-effect="non-scaling-stroke"/>
+      <path d="M950 1000V875Q950 845 980 845H1180Q1210 845 1210 815V785Q1210 755 1180 755H925Q895 755 895 785V1000" stroke-opacity=".12" vector-effect="non-scaling-stroke"/>
+      <rect x="1035" y="820" width="380" height="125" rx="30" stroke-opacity=".1" vector-effect="non-scaling-stroke"/>
+    </g>
+    <g stroke="#94E2D5">
+      <path d="M1030 0V285Q1030 315 1060 315H1090Q1120 315 1120 285V0" stroke-opacity=".14" vector-effect="non-scaling-stroke"/>
+      <path d="M0 895H475Q505 895 505 865V790Q505 760 475 760H0" stroke-opacity=".12" vector-effect="non-scaling-stroke"/>
+    </g>
+    <path d="M0 590H235Q265 590 265 620V1000" stroke="#FAB387" stroke-opacity=".15" vector-effect="non-scaling-stroke"/>
+    <path d="M1600 610H1490Q1460 610 1460 640V1000" stroke="#B4BEFE" stroke-opacity=".17" vector-effect="non-scaling-stroke"/>
+    <rect x="50" y="680" width="365" height="240" rx="30" stroke="#B4BEFE" stroke-opacity=".1" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>

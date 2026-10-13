@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article class="page-layout" aria-labelledby="article-title">
+  {{ partial "page-header.html" . }}
+  {{ partial "contact-panel.html" (dict "email_action" true) }}
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="list-layout work-layout">
+  {{ partial "page-header.html" . }}
+  <div class="prose">{{ .Content }}</div>
+  <ul class="project-list">
+    {{ range .RegularPages.ByDate.Reverse }}
+      <li class="work-entry">
+        {{ partial "project-image.html" . }}
+        <div class="project-summary">
+          {{ if .Draft }}<span class="sample-label">Draft for private review</span>{{ end }}
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Params.github_url }}<a class="text-link meta project-repository" href="{{ . }}">View repository on GitHub <span class="arrow" aria-hidden="true">↗</span></a>{{ end }}
+          <p class="project-description">{{ .Description }}</p>
+          {{ partial "project-stage.html" . }}
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

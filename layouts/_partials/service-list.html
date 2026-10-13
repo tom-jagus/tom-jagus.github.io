@@ -1,0 +1,8 @@
+{{- range .headings -}}
+  {{- if eq .Level 2 -}}
+    <li>{{ if $.linked }}<a href="{{ $.url }}#{{ .ID }}">{{ .Title | plainify }}</a>{{ else }}{{ .Title | plainify }}{{ end }}</li>
+  {{- end -}}
+  {{- with .Headings -}}
+    {{- partial "service-list.html" (dict "headings" . "linked" $.linked "url" $.url) -}}
+  {{- end -}}
+{{- end -}}

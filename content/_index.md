@@ -1,22 +1,11 @@
-+++
-title = 'Welcome'
-+++
-
-{{< lead >}}
-{{< typeit
-speed=40 >}}
-
-I turn complexity into clarity — designing systems, automating workflows, and applying AI to solve meaningful problems, deliver business value, and support smarter decision-making.
-
-{{< /typeit >}}
-{{< /lead >}}
-
+---
+title: "Tom Jagus"
+description: "I design workflows and build tools, connecting software with the information, processes, and responsibilities around it."
+draft: false
+selected_work:
+  - /work/website-rewrite
 ---
 
-**Want to know how I think, work, and build?** Head to the About page for a deeper look at my philosophy, tools, and approach.
+I'm Tom Jagus. I design workflows and build tools, connecting software with the information, processes, and responsibilities around it.
 
-{{< button href="about" target="_self" >}}
-👤 About me
-{{< /button >}}
-
----
+I look for changes that reduce unnecessary effort and make work clearer and more reliable. Through my own projects, I explore those ideas and the choices behind them.

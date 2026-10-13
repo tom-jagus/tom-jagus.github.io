@@ -1,115 +1,37 @@
-+++
-title = 'About me'
-showDate = false
-showViews = false
-showLikes = false
-showAuthor = false
-showHero = false
-showReadingTime = false
-showTableOfContents = true
-showRelatedContent = false
-showWordCount = false
-showPagination = false
-+++
-
-{{< alert "comment" >}}
-
-I design, develop, and deliver systems that simplify complexity, automate what matters, and enable smarter decision-making. My work bridges data, code, and architecture to help businesses reduce friction, gain clarity, and move forward with confidence.
-
-{{< /alert >}}
-
+---
+title: "About me"
+description: "How I approach workflows, tools, and the work around them."
+draft: true
+layout: about
+review_note: "Draft for private review. Sample copy, not approved for publication."
 ---
 
-## 🧭 Who I Am
+I'm Tom Jagus. I'm interested in how work actually happens: the tools people use, the information they need, and the decisions and responsibilities that connect everything.
 
-I'm someone who thrives on solving meaningful problems - not just writing code or building dashboards, but uncovering what really needs fixing and making it better. My background blends data, systems thinking, and a strong bias toward action.
+I design workflows and build tools. I look for changes that reduce unnecessary effort, make a process easier to understand, or help people handle it more reliably.
 
-Whether I'm architecting a solution, engineering a workflow, or mentoring a team, I bring structure, empathy, and momentum to every project. I care deeply about building tools people actually use - tools that reduce friction, surface insight, and scale with clarity.
+## Background
 
-I believe that well-designed systems don't just improve performance - they empower better decisions and create healthier, more resilient ways of working.
+My background combines hands-on development, technical support, and business analysis. I've built user-facing tools, reporting solutions, and software that automates and connects work. I've also helped teams define how they measure success and document how they operate.
 
----
+That experience shapes how I think about a solution. A useful recommendation has to account for what it takes to build, use, and maintain it.
 
-## 🧠 How I Work
+## How I approach a problem
 
-I approach every project with a balance of structure and adaptability. Whether I'm working independently or embedded in a cross-functional team, I aim to bring clarity, reduce ambiguity, and keep momentum moving forward.
+I want to understand what is happening before choosing a tool. Who needs the result? Where does the information come from? Which decisions require a person, and which steps are repetitive?
 
-My process is iterative, outcome-driven, and grounded in real business needs. I ask the right questions up front, ship in small, confident steps, and document decisions as I go - because long-term value comes from systems that are clear, maintainable, and easy to pick up.
+I also care about what happens after a demonstration. Information can be missing, a step can fail, or someone else can take over. Recovery, responsibilities, and understandable documentation belong in the design.
 
-I thrive in environments that value feedback, trust, and purpose. While I prefer agile principles, I know how to apply them flexibly - even in more rigid or legacy-driven workflows.
+Sometimes the useful change is software. Sometimes it is a clearer handoff or a simpler way of working.
 
----
+## What I'm exploring
 
-## 🧰 What I Build
+My own projects give me room to test ideas and examine how I work. I want to share what I learn about my setup, development practices, documentation, and experiments with AI and agents.
 
-I build systems that make data useful, automation sustainable, and insights actionable.
+I currently use AI mainly for brainstorming, planning, documentation, and keeping project context organized. I'm interested in what helps, what falls short, and what leads me to change my approach.
 
-That includes:
+## Working together
 
-- **Automated data pipelines** that extract, transform, and integrate data across platforms
-- **Reporting systems and semantic models** that deliver trusted, decision-ready insight
-- **LLM-powered tools and workflows** that augment analysis, streamline tasks, and surface deeper context
-- **Architecture and process design** that reduces friction and scales with clarity
-- **Custom scripts, interfaces, and automation layers** that remove repetition and create momentum
+I bring the same perspective to helping organizations improve their workflows. I can assess a problem, design an approach, guide implementation, or develop the solution where needed.
 
-Whether it's a self-service dashboard, a robust backend pipeline, or an AI-augmented workflow, I focus on building things that simplify the complex and deliver lasting value.
-
----
-
-## 🧱 Tools & Technologies
-
-My daily toolkit spans data platforms, scripting languages, automation tools, and AI systems - everything I need to move from raw input to real insight.
-
-Some of the technologies I rely on most:
-
-- **Power BI** & **Microsoft Fabric** for modeling, reporting, and scalable delivery
-- **Power Query (M)**, **DAX**, and **TMDL** for building robust semantic layers
-- **Python** & **SQL** for scripting, automation, and data engineering
-- **LLMs**, prompt engineering, and generative AI tools for insight acceleration and intelligent automation
-- **Tabular Editor**, **DAX Studio**, and **Excel** for modeling, diagnostics, and validation
-- **Git**, **Neovim**, and terminal-based workflows for versioned, repeatable development
-
----
-
-## 🎯 Specializations & Impact
-
-I specialize in building systems that bridge data, automation, and usability - all with a clear focus on enabling better decisions.
-
-What that looks like in practice:
-
-- Designing **semantic models** and **reporting systems** aligned with real-world decision-making
-- Automating **data extraction**, **transformation**, and **integration** across platforms and formats
-- Developing **Power BI solutions** that scale across teams while remaining fast and maintainable
-- Applying **LLMs** to enhance productivity, reduce friction, and surface deeper analytical insight
-- Using **Python**, **TMDL**, and custom scripting to streamline modeling, analysis, and deployment
-- Improving **knowledge transfer**, **documentation**, and **process design** for long-term clarity and reuse
-
-Everything I build is designed to be clear, adaptable, and useful - not just for today's project, but for the team that inherits it tomorrow.
-
----
-
-## 🧬 Career Highlights
-
-My path started in design and front-end development, but quickly moved toward systems thinking, data architecture, and automation - where I found the perfect mix of creativity, structure, and problem-solving.
-
-Over the years, I've worked as a:
-
-- **Graphic Designer** and **Front-End Developer**, learning to communicate clearly and design with users in mind
-- **Support Specialist**, building empathy and solving real problems at the point of impact
-- **Data Analyst** and **BI Expert**, turning raw data into insight through modeling, reporting, and storytelling
-- **Reporting Analyst** and **Continual Improvement Manager**, leading optimization efforts across reporting and process workflows
-- **Senior Cloud Platform Engineer**, designing scalable automation, integrating AI, and building platform-level solutions across teams and business units
-
-I've supported businesses across industries like **Service Management**, **IT Support**, **SLA Monitoring**, **Talent Deployment**, and **Change Enablement** - always with a focus on enabling smarter decisions and building sustainable solutions.
-
----
-
-## 🤝 Let's Connect
-
-If you're looking for someone who can bring structure, automation, and clarity to complex challenges - I'd love to hear from you.
-
-Whether it's a quick project, a long-term collaboration, or just a good conversation, feel free to reach out.
-
-{{< button href="/contact" target="_self" >}}
-📬 Get in touch
-{{< /button >}}
+The Services page describes those areas in more detail. You can also get in touch about a question, an idea, or something I've shared.

@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article class="page-layout" aria-labelledby="article-title">
+  {{ partial "page-header.html" . }}
+  <div class="about-opening">
+    <img class="avatar about-avatar" src="{{ site.Params.avatar | relURL }}" alt="Illustrated portrait of {{ site.Params.name }}" width="1086" height="1448">
+    <div class="prose">{{ .Content }}</div>
+  </div>
+  {{ partial "contact-panel.html" (dict "email_action" false) }}
+</article>
+{{ end }}

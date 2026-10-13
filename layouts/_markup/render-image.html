@@ -1,0 +1,5 @@
+{{ $image := .Page.Resources.GetMatch .Destination }}
+<figure class="figure-wide">
+  <img src="{{ if $image }}{{ $image.RelPermalink }}{{ else }}{{ .Destination }}{{ end }}" alt="{{ .PlainText }}" loading="lazy"{{ if and $image (ne $image.MediaType.SubType "svg") }} width="{{ $image.Width }}" height="{{ $image.Height }}"{{ end }}>
+  {{ with .Title }}<figcaption class="meta">{{ . }}</figcaption>{{ end }}
+</figure>

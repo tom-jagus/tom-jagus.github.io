@@ -1,0 +1,5 @@
+{{- with .Params.status -}}
+  {{- $tones := dict "planned" "blue" "in-progress" "peach" "complete" "green" "completed" "green" "maintained" "teal" "paused" "yellow" "archived" "neutral" -}}
+  {{- $tone := index $tones (. | urlize) | default "neutral" -}}
+  <p class="project-stage project-stage--{{ $tone }}"><span>Stage</span> <strong>{{ . }}</strong></p>
+{{- end -}}

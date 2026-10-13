@@ -1,44 +1,44 @@
-# Progress and action plan
+# Progress and next action
 
 ## Current state
 
-Design and content decisions are settled enough to begin the first custom Hugo conversion unit. Tom accepted the homepage/article styling, content folders and YAML fields, `github_url`, optional project images, and a desktop-right/mobile-collapsible TOC. The agreed target is ordinary Hugo Extended 0.167.0, to be pinned exactly locally and in CI, not `extended_withdeploy`. See the [project definition](definition.md), [layout brief](../design/layout.md), and [content structure](../design/content.md) for the authoritative choices.
+The custom Hugo templates, including the latest Services TOC and Work/project-metadata changes, are implemented locally and ready for Tom's review. Repository cleanup is complete; only active source, tooling, tests, brand assets, licensed fonts, and useful documentation remain. The [definition](definition.md), [layout brief](../design/layout.md), and [content contract](../design/content.md) remain authoritative. Hugo is ordinary Extended 0.167.0, pinned locally and in CI.
 
-The branch is `feat/website-rewrite`; HEAD remains `822e079`, the starting `main` commit. `design-preview/` and `docs/` are untracked. Nothing from the rewrite has been committed, pushed, or deployed. The isolated [static preview](../../design-preview/README.md) has the approved colors, bold lavender titles, infinite cursor blink with reduced-motion fallback, sticky header, mobile menu, background blur, and solid footer. Its article still has an inline TOC. The newly accepted responsive TOC has not been implemented.
+The rewrite is on `feat/website-rewrite`. This source snapshot includes the toolchain, custom templates, draft Markdown samples, assets, tests, documentation, and removal of legacy/generated files. The standalone design preview and local validation artifacts are excluded. Tom approved the implementation, cleanup, website-favicon exception, and a local commit. No tag, push, or deployment is authorized. Use Git history and status for the current commit and working-tree state; further edits or Git actions need their own approval.
 
-The production Hugo site is unchanged. Configuration still selects Blowfish, and `.github/workflows/hugo.yml` still pins Hugo 0.128.0, deploys on `main` pushes, and permits manual runs. Hugo is not available in the current shell, and no custom Hugo layouts have been created. `.gitmodules` still declares the theme and legacy `public` submodule. Existing content has theme shortcodes and outdated service wording. The target Hugo version and content folders are decisions, not completed migration work.
+Implemented locally:
 
-Only the documentation update is authorized at this handoff. Earlier preview-edit approvals do not grant Hugo source/configuration edits or carry into a new session. Obtain explicit authority for the next conversion unit. Git actions and publication require their own authorization.
+- `layouts/` contains the shared metadata/header/menu/footer, homepage, reading template, dedicated About/Contact/Services and Work-index layouts, a Writing/basic index fallback, 404, RSS, sitemap, and robots templates. `assets/css/site.css` and `assets/js/site.js` adapt the approved preview.
+- The homepage reads Markdown copy, curated work, latest writing, and the internal video collection. Empty collections and unavailable destinations are omitted. Social links remain absent until their exact URLs are confirmed.
+- The reading template generates one optional TOC, sticky on the desktop right and collapsible below the title on narrow screens. Reading titles and paragraphs now align with the homepage container's left edge. Lists span its full width; paragraphs retain roughly a 60-character measure, and figures/code use the content area's full width. No sidebar is reserved without a TOC. Services shares that contents component and responsive layout, listing only its five H2 offers rather than repeated subsections. The contact invitation stays full-width. The cursor has a working pause toggle and stays still with reduced motion or without JavaScript.
+- Blowfish, submodule declarations, the empty module configuration, obsolete images/fonts/favicons, old generated trees, and the working-tree legacy archive are removed. All 43 archived content files matched the original `content/` tree at `4292a28` and remain recoverable from Git history. The [old URL inventory](../design/old-urls.md) records 47 HTML routes, 12 RSS routes, and recovery instructions.
+- The untracked static design study has a verified 12-file backup outside the repository, recorded in that inventory. All seven retained brand/font assets matched their preview copies. Current layout review uses Hugo rather than a duplicate static prototype.
+- Draft About/Contact/Services pages and project/writing/video bundles support local review. Services explains all five offers with jump links, contributions, possible outputs, and boundaries. The homepage's Contact me action opens the separate Contact page, where Email me opens the email client.
+- Non-rendering `content/shared/` Markdown sources own the existing short service/contact introductions, keeping them available when the expanded page drafts are excluded. Production retains the original homepage invitation and direct email fallback. Work now has full-width image-and-copy rows. Bundle images require alt text; entries without an `image` field use a shared decorative abstract diagram. Index entries and project pages share stage boxes from `status`, with repository links near their titles. Missing metadata is omitted and custom stages remain neutral. Project write-ups reuse the reading layout; Writing retains its full-width list.
+- The favicon uses the original three wordmark strokes on a rounded Mocha Base square, under Tom's approved website-specific exception. Every HTML page links an SVG and a 16/32/48px ICO fallback with subpath-safe URLs. The external brand guidance and full header wordmark are unchanged.
+- CSS exposes all 26 Catppuccin Mocha colors while preserving existing color roles. The original avatar, fonts, and font license are unchanged. Tom will supply a smaller avatar at the end; font optimization is deferred.
 
-## Remaining inputs and checks
+Output goes to ignored `build/public/` and `build/resources/`. Destination cleanup prevents old draft output surviving a production rebuild. Root-level generated output and the Hugo lock file are ignored too. The default archetype now creates YAML drafts without an invented publication date. The favicon pass adds delivery assets, head links, and tests without changing editorial content, CSS/JavaScript, CI, the Hugo pin, or existing identity assets.
 
-- Select real projects, writing, and videos ready for launch. Omit empty collections and navigation destinations.
-- Confirm the exact YouTube, GitHub, LinkedIn, and X profile URLs and the livestream platform.
-- Define manual stream announcement fields and expiry behavior without implying automatic live detection.
-- Review remaining page layouts during implementation, using the approved homepage/article and accepted content structure.
-- Make Hugo Extended 0.167.0 available locally and update the CI pin under implementation approval.
-- Resolve the continuous cursor's missing pause/hide control before publication. Reduced-motion support exists but is not a general pause control.
-- Recheck responsive layout and cursor behavior after the latest manual CSS changes.
-- Verify live DNS and Pages settings for the confirmed domain before launch.
+The working-tree workflow is build-only, runs the template tests, and uploads ordinary production-content review artifacts. All site pages request no indexing during review. The remote deployment workflow remains unchanged because nothing has been pushed. See [development commands](../development.md) and [asset sources](../design/assets.md).
 
-## Proposed action plan
+## Validation
 
-1. Agree the source/configuration edit scope, make Hugo Extended 0.167.0 available locally, and pin the same version in CI. Keep deployment inactive during review.
-2. Build the shared shell, homepage, and article templates from the approved preview, with generated responsive TOC behavior. Use clearly labeled private drafts for validation, not invented launch content.
-3. Build and review the remaining page templates, migrate to the accepted content structure, and remove Blowfish dependencies. Inventory old URLs, including `/blog/`, and preserve useful links.
-4. Select launch content and adapt approved brand copy. Include only projects and publications ready for public use; omit empty collections and navigation destinations.
-5. Simplify the build and deployment setup. Remove the obsolete theme and `public` submodule arrangements, pin the required tooling, and add pull-request build checks without production deployment. Review manual deployment behavior so the rewrite cannot go live accidentally.
-6. Validate the site locally and in CI. Check internal links, drafts, metadata, old URLs, keyboard use, contrast, mobile reflow, and text enlargement. Document local authoring and build commands.
-7. Review the completed site with Tom. Merge and publish only under separate authorization, then check the live domain and deployment.
+Production and draft builds passed with warnings treated as failures. Eighteen repeatable Python build tests passed for YAML draft creation, publication filters, stale-output cleanup, selection order, generated TOC links, internal video routes/resources, RSS/sitemap exclusions, metadata, asset integrity, confirmed-link ordering, standalone page/contact routing, all five service jump links, project image validation/fallbacks, stage tints and missing metadata, nearby repository links, the full Mocha palette, favicon geometry/ICO sizes and publication, subpath URLs, and internal links. Tests simulate approving the new page drafts only in a temporary copy. JavaScript syntax, workflow linting, and whitespace checks passed. The cleanup previously preserved build output byte-for-byte. The Services/Work pass added the project illustration and layout changes; the favicon pass adds two static icon assets and head links. The preview backup and complete URL inventory remain the recovery references.
 
-## Preview validation
+The Services/Work pass's Chromium checks passed at 1440, 768, 390, and 320px across nine routes: Home, About, Contact, Services, Work, a project write-up, Writing, and articles with/without a TOC. Checks covered alignment and paragraph measure, image loading, desktop/mobile TOCs, all five service anchor offsets, full-width Services contact panel, project image stacking/stages/repository links, menu focus/scroll-lock regression, cursor pause, reduced motion, JavaScript-disabled browsing, print, and forced colors. All nine routes passed 200% text enlargement at 320px and automated Axe WCAG A/AA checks. Six desktop/mobile screenshots were inspected. The favicon pass verified SVG/ICO links and image decoding across six HTML routes in Chromium, and inspected 16/32/48px previews on light and dark backgrounds. The broader layout checks were not repeated for this head-only change. Browser scripts and screenshots are temporary; do not depend on `/tmp` surviving.
 
-Earlier Chromium checks rendered both pages at 1440, 768, 390, and 320px. They passed for page-wide overflow, loaded fonts/images, 44px targets, 200% text enlargement at 320px, skip-link behavior, mobile-menu keyboard handling and scroll lock, sticky-header anchor offsets, and background blur. Color, principal contrast, local references, duplicate IDs, unchanged brand/font copies, footer order, reduced-motion, JavaScript-disabled navigation, direct-file preview, and article print/forced-color checks passed. Desktop and mobile screenshots were inspected.
+GitHub-hosted CI, assistive-technology testing, and other browser engines have not been run. These checks do not establish launch readiness with final content.
 
-Tom subsequently changed the cursor to infinite blinking and the article H1 to bold, then confirmed that the result looks good. Current CSS inspection verifies both changes and the reduced-motion override. Browser checks have not been rerun after these edits; the previous bounded-cursor assertions no longer apply. A pause/hide control, assistive-technology testing, and final content checks remain before publication.
+## Remaining work and inputs
+
+- Review Services' side TOC and the Work index/project stage boxes, default image, and nearby repository links. Review the Writing index with real material.
+- Replace the new page samples with reviewed personal/service/contact copy before changing their draft status.
+- Select real launch projects, writing, and videos. Replace or omit the private samples; do not invent a portfolio or publishing history.
+- Confirm exact YouTube, GitHub, LinkedIn, and X URLs, the livestream platform, and manual announcement fields/expiry behavior. No stream notices or automatic live claims are implemented.
+- Review the recorded old URLs, including `/blog/`, and choose useful alias/redirect destinations before launch. No redirects were added during cleanup.
+- Review the new favicon at browser-tab size, final social icon/share artwork, accessibility with assistive technology, and live DNS/Pages settings. Restore indexing and enable deployment only during separately authorized launch work.
 
 ## Next action
 
-In the next session, read the linked definition, layout, and content documents, inspect `design-preview/index.html`, `article.html`, `styles.css`, and `preview.js`, then verify Git state. Do not rely on temporary test scripts or screenshots under `/tmp` surviving.
-
-Obtain explicit source/configuration edit approval for the first Hugo conversion unit. Start with the pinned toolchain, shared shell, homepage, and article templates, including the accepted responsive TOC. Remaining launch inputs do not block this unit. Do not reopen settled choices or choose a newer Hugo version merely because one exists; surface any material compatibility or security conflict first.
+Tom should review `/services/`, `/work/`, and `/work/website-rewrite/` through the local draft server, and check the new favicon in the browser tab. Further source changes, tags, pushes, or deployment require separate approval.

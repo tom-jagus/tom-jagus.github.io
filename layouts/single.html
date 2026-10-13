@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{ $hasToc := and .Params.toc (findRE `<a href=` .TableOfContents) }}
+<article class="article-layout{{ if $hasToc }} article-layout--toc{{ end }}" aria-labelledby="article-title">
+  <div class="article-heading">
+    {{ with .CurrentSection }}{{ if and (not .IsHome) .RelPermalink (in site.Pages .) }}
+      <a class="text-link meta" href="{{ .RelPermalink }}"><span class="arrow" aria-hidden="true">←</span> Back to {{ .Title | lower }}</a>
+    {{ end }}{{ end }}
+    {{ partial "page-header.html" . }}
+  </div>
+  {{ if $hasToc }}
+    {{ partial "contents.html" (dict "page" . "label" "On this page") }}
+  {{ end }}
+  <div class="article-content">
+    <div class="prose">{{ .Content }}</div>
+    {{ if eq .Section "writing" }}
+      <footer class="article-end">
+        <p class="measure">Have a question about something here? <a href="mailto:{{ site.Params.email }}">Email me</a>.</p>
+      </footer>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

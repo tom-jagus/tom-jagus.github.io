@@ -1,0 +1,28 @@
+{{ $profiles := slice }}
+{{ $labels := dict "youtube" "YouTube" "github" "GitHub" "x" "X" "linkedin" "LinkedIn" }}
+{{ range slice "youtube" "github" "x" "linkedin" }}
+  {{ $platform := . }}
+  {{ with index site.Params.social $platform }}
+    {{ $profiles = $profiles | append (dict "platform" $platform "label" (index $labels $platform) "url" .) }}
+  {{ end }}
+{{ end }}
+{{ $published := where (where site.RegularPages "Section" "in" (slice "writing" "work")) "Draft" false }}
+{{ if $published }}
+  {{ with site.Home.OutputFormats.Get "RSS" }}{{ $profiles = $profiles | append (dict "platform" "rss" "label" "RSS" "url" .RelPermalink) }}{{ end }}
+{{ end }}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+      <div>
+        <span class="footer-name">{{ site.Params.name }}</span>
+        <p>{{ site.Params.brand_line }}</p>
+      </div>
+      {{ with $profiles }}
+      <ul class="social-list" aria-label="Elsewhere">
+        {{ range . }}<li><a class="social-link" href="{{ .url }}">{{ partial "social-icon.html" .platform }}{{ .label }}</a></li>{{ end }}
+      </ul>
+      {{ end }}
+    </div>
+    <p class="copyright meta">© {{ now.Year }} {{ site.Params.name }}</p>
+  </div>
+</footer>

@@ -1,0 +1,9 @@
+<details class="contents" open>
+  <summary>{{ .label }}</summary>
+  <span class="toc-title">{{ .label }}</span>
+  {{ with .items }}
+    <nav aria-label="{{ $.label }}"><ol>{{ . }}</ol></nav>
+  {{ else }}
+    {{ replace .page.TableOfContents `<nav id="TableOfContents">` `<nav id="TableOfContents" aria-label="Article contents">` | safeHTML }}
+  {{ end }}
+</details>

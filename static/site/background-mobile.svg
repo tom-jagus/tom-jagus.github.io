@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" preserveAspectRatio="none">
+  <!-- Fewer, larger shapes for narrow viewports. Open paths continue to the edges. -->
+  <g fill="none" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="24" y="42" width="155" height="160" rx="24" stroke="#89B4FA" stroke-opacity=".11" vector-effect="non-scaling-stroke"/>
+    <path d="M0 145H85Q109 145 109 169V225Q109 249 133 249H210Q234 249 234 225V0" stroke="#89B4FA" stroke-opacity=".15" vector-effect="non-scaling-stroke"/>
+    <path d="M335 0V330Q335 354 311 354H270Q246 354 246 378V844" stroke="#94E2D5" stroke-opacity=".14" vector-effect="non-scaling-stroke"/>
+    <rect x="240" y="425" width="125" height="215" rx="24" stroke="#89B4FA" stroke-opacity=".12" vector-effect="non-scaling-stroke"/>
+    <path d="M390 510H320Q296 510 296 534V844" stroke="#B4BEFE" stroke-opacity=".15" vector-effect="non-scaling-stroke"/>
+    <path d="M0 670H80Q104 670 104 694V844" stroke="#FAB387" stroke-opacity=".14" vector-effect="non-scaling-stroke"/>
+    <rect x="20" y="725" width="185" height="92" rx="24" stroke="#89B4FA" stroke-opacity=".1" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>

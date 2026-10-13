@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"
+     role="img" aria-labelledby="favicon-title">
+  <title id="favicon-title">Tom Jagus favicon</title>
+  <metadata>
+    Original wordmark accent paths, spacing, rounded caps, and colors preserved.
+    Website-favicon exception approved by Tom; not a replacement for the full wordmark.
+  </metadata>
+  <rect width="48" height="48" rx="8" fill="#1E1E2E"/>
+  <g transform="translate(4 4)" fill="none" stroke-width="4" stroke-linecap="round">
+    <path d="M4 30L12 10" stroke="#FAB387"/>
+    <path d="M16 30L24 10" stroke="#94E2D5"/>
+    <path d="M28 30L36 10" stroke="#B4BEFE"/>
+  </g>
+</svg>

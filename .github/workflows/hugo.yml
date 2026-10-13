@@ -1,74 +1,80 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+name: Build Hugo review artifact
 
 on:
-  # Runs on pushes targeting the default branch
   push:
+    branches: ["main", "feat/website-rewrite"]
+  pull_request:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: hugo-review-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
-# Default to bash
 defaults:
   run:
     shell: bash
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.128.0
+      HUGO_VERSION: "0.167.0"
+      HUGO_ARCHIVE_SHA256: "0163f5c3deddac1f494a1629ddc40c65d18de9d5794facd98f7f96ac2c7d8957"
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Build with Hugo
+          persist-credentials: false
+
+      - name: Install Hugo Extended
+        run: |
+          archive="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl --fail --location --retry 3 \
+            --output "${RUNNER_TEMP}/${archive}" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${archive}"
+          printf '%s  %s\n' "${HUGO_ARCHIVE_SHA256}" "${RUNNER_TEMP}/${archive}" | sha256sum --check --strict
+          mkdir -p "${RUNNER_TEMP}/hugo-bin"
+          tar -xzf "${RUNNER_TEMP}/${archive}" -C "${RUNNER_TEMP}/hugo-bin" hugo
+          echo "${RUNNER_TEMP}/hugo-bin" >> "${GITHUB_PATH}"
+
+      - name: Check Hugo version and edition
+        run: |
+          version="$(hugo version)"
+          echo "${version}"
+          [[ "${version}" == "hugo v${HUGO_VERSION}-"*"+extended linux/amd64 "* ]]
+          python3 - <<'PY'
+          import os
+          import tomllib
+          from pathlib import Path
+
+          tools = tomllib.loads(Path("mise.toml").read_text())["tools"]
+          assert tools["hugo-extended"] == os.environ["HUGO_VERSION"], "Local and CI Hugo pins differ"
+          PY
+
+      - name: Test custom templates
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Build production content for review
         env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo-cache
           HUGO_ENVIRONMENT: production
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+            --buildDrafts=false \
+            --buildFuture=false \
+            --buildExpired=false \
+            --baseURL "https://tom.jagus.me/" \
+            --destination "${RUNNER_TEMP}/hugo-public"
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Upload review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-review-${{ github.sha }}
+          path: ${{ runner.temp }}/hugo-public
+          if-no-files-found: error
+          retention-days: 7

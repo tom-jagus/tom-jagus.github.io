@@ -1,0 +1,106 @@
+{{ define "main" }}
+{{ $work := site.GetPage "/work" }}
+{{ $writing := site.GetPage "/writing" }}
+<section class="hero" aria-labelledby="intro-title">
+  <img class="avatar" src="{{ site.Params.avatar | relURL }}" alt="Illustrated portrait of {{ site.Params.name }}" width="1086" height="1448" fetchpriority="high">
+  <div class="hero-copy">
+    {{ $words := split site.Params.brand_line " " }}
+    <h1 id="intro-title">{{ delimit (first (sub (len $words) 1) $words) " " }} <span class="hero-ending">{{ index $words (sub (len $words) 1) }}<span class="text-cursor" aria-hidden="true"></span></span></h1>
+    {{ .Content }}
+    <div class="hero-links">
+      {{ with site.GetPage "/about" }}{{ if in site.Pages . }}<a class="text-link" href="{{ .RelPermalink }}">About me <span class="arrow" aria-hidden="true">→</span></a>{{ end }}{{ end }}
+      {{ if and $work (in site.Pages $work) $work.RegularPages }}<a class="text-link" href="{{ $work.RelPermalink }}">Explore my work <span class="arrow" aria-hidden="true">→</span></a>{{ end }}
+    </div>
+    <button id="cursor-toggle" class="cursor-control" type="button" aria-pressed="false" hidden>Pause cursor animation</button>
+  </div>
+</section>
+
+{{ $selected := slice }}
+{{ range .Params.selected_work }}
+  {{ with site.GetPage . }}
+    {{ if and (eq .Section "work") .IsPage (in site.RegularPages .) }}{{ $selected = $selected | append . }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ with first 2 $selected }}
+<section class="home-section" id="work" aria-labelledby="work-title">
+  <div class="section-heading"><h2 id="work-title">Selected work</h2></div>
+  <div class="two-columns">
+    {{ range $index, $page := . }}
+    <article class="panel project-card{{ if eq $index 1 }} panel--teal{{ end }}">
+      {{ if .Draft }}<span class="sample-label">Draft for private review</span>{{ end }}
+      {{ with .Params.status }}<span class="meta">{{ . }}</span>{{ end }}
+      <h3>{{ .Title }}</h3>
+      <p>{{ .Description }}</p>
+      <a class="text-link" href="{{ .RelPermalink }}">Read project <span class="arrow" aria-hidden="true">→</span></a>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ $latest := first 2 (where site.RegularPages "Section" "writing").ByDate.Reverse }}
+{{ with $latest }}
+<section class="home-section" id="writing" aria-labelledby="writing-title">
+  <div class="section-heading">
+    <h2 id="writing-title">Latest writing</h2>
+    {{ if and $writing (in site.Pages $writing) }}<a class="text-link" href="{{ $writing.RelPermalink }}">All writing <span class="arrow" aria-hidden="true">→</span></a>{{ end }}
+  </div>
+  <ul class="writing-list">
+    {{ range . }}
+    <li class="writing-entry">
+      <div>
+        {{ if .Draft }}<span class="sample-label">Draft for private review</span>{{ end }}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description }}</p>
+      </div>
+      {{ if not .Date.IsZero }}<time class="meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format site.Params.date_format }}</time>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ with site.GetPage "/videos" }}
+  {{ with first 2 .RegularPages.ByDate.Reverse }}
+  <section class="home-section" id="videos" aria-labelledby="videos-title">
+    <div class="section-heading">
+      <h2 id="videos-title">Recent videos</h2>
+      {{ with site.Params.social.youtube }}<a class="text-link" href="{{ . }}">More videos on YouTube <span class="arrow" aria-hidden="true">↗</span></a>{{ end }}
+    </div>
+    <div class="two-columns">
+      {{ range . }}
+        {{ $thumbnail := .Resources.GetMatch .Params.thumbnail }}
+        {{ if not $thumbnail }}{{ errorf "Video %s needs a bundle thumbnail" .Path }}{{ end }}
+        {{ if not .Params.watch_url }}{{ errorf "Video %s needs watch_url" .Path }}{{ end }}
+        {{ if not (in (slice "video" "livestream-recording") .Params.format) }}{{ errorf "Video %s has an unsupported format" .Path }}{{ end }}
+        <article class="video-card">
+          <div class="video-thumbnail">
+            {{ with $thumbnail }}<img src="{{ .RelPermalink }}" alt="" loading="lazy">{{ end }}
+            <span class="video-format">{{ if eq .Params.format "livestream-recording" }}Livestream recording{{ else }}Video{{ end }}</span>
+          </div>
+          {{ if .Draft }}<span class="sample-label">Draft for private review</span>{{ end }}
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Description }}</p>
+          <a class="text-link" href="{{ .Params.watch_url }}">Watch {{ if eq .Params.format "livestream-recording" }}recording{{ else }}video{{ end }} <span class="arrow" aria-hidden="true">↗</span></a>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+{{ end }}
+
+{{ $services := site.GetPage "/services" }}
+{{ with site.GetPage "/shared/services" }}
+<section class="home-section services-intro" id="services" aria-labelledby="services-title">
+  <h2 id="services-title">Work with me</h2>
+  <div class="services-columns">
+    <div>
+      {{ .RenderString (dict "display" "block") .Params.intro }}
+      {{ if and $services $services.RelPermalink (in site.Pages $services) }}<a class="text-link" href="{{ $services.RelPermalink }}">Explore services <span class="arrow" aria-hidden="true">→</span></a>{{ end }}
+    </div>
+    <ul class="service-list" aria-label="Service areas">{{ partial "service-list.html" (dict "headings" .Fragments.Headings) }}</ul>
+  </div>
+</section>
+{{ end }}
+{{ partial "contact-panel.html" (dict "email_action" false) }}
+{{ end }}

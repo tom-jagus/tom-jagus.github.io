@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="list-layout">
+  {{ partial "page-header.html" . }}
+  <div class="prose">{{ .Content }}</div>
+  <ul class="writing-list">
+    {{ range .RegularPages.ByDate.Reverse }}
+      <li class="writing-entry">
+        <div>
+          {{ if .Draft }}<span class="sample-label">Draft for private review</span>{{ end }}
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <p>{{ .Description }}</p>
+        </div>
+        {{ if not .Date.IsZero }}<time class="meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format site.Params.date_format }}</time>{{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

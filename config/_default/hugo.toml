@@ -1,70 +1,21 @@
-# -- Site Configuration --
-# Refer to the theme docs for more details about each of these parameters.
-# https://blowfish.page/docs/getting-started/
-
-theme = "blowfish" # UNCOMMENT THIS LINE
 baseURL = "https://tom.jagus.me/"
+title = "Tom Jagus"
 defaultContentLanguage = "en"
-
-# pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
-
 enableRobotsTXT = true
-summaryLength = 0
-
 buildDrafts = false
 buildFuture = false
+buildExpired = false
+disableKinds = ["taxonomy", "term"]
+# Generated output and resource caches stay local, never committed.
+publishDir = "build/public"
+resourceDir = "build/resources"
+# Publish the site's self-contained brand assets and licensed fonts.
+staticDir = ["static/site"]
 
-enableEmoji = true
-
-# googleAnalytics = "G-XXXXXXXXX"
-
-[pagination]
-  pagerSize = 100
-
-[imaging]
-  anchor = 'Center'
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  author = "authors"
-  series = "series"
-
-[sitemap]
-  changefreq = 'daily'
-  filename = 'sitemap.xml'
-  priority = 0.5
+[build.cleanDestinationDir]
+  enable = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
-
-[related]
-  threshold = 0
-  toLower = false
-
-    [[related.indices]]
-        name = "tags"
-        weight = 100
-
-    [[related.indices]]
-        name = "categories"
-        weight = 100
-
-    [[related.indices]]
-        name = "series"
-        weight = 50
-
-    [[related.indices]]
-        name = "authors"
-        weight = 20
-
-    [[related.indices]]
-        name = "date"
-        weight = 10
-
-    [[related.indices]]
-      applyFilter = false
-      name = 'fragmentrefs'
-      type = 'fragments'
-      weight = 10
-
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  page = ["HTML"]

@@ -1,29 +1,17 @@
-+++
-title = 'Contact'
-showDate = false
-showViews = false
-showLikes = false
-showAuthor = false
-showHero = false
-showReadingTime = false
-showTableOfContents = true
-showRelatedContent = false
-showWordCount = false
-showPagination = false
-+++
+---
+title: "Contact"
+description: "Get in touch about a question, collaboration, or work you would like to improve."
+draft: true
+layout: contact
+review_note: "Draft for private review. Sample copy, not approved for publication."
+---
 
-I’m always open to thoughtful conversations - whether it's about consulting opportunities, long-term collaboration, or exchanging ideas around automation, AI, or smarter systems.
+## What to include
 
-Right now, the best way to reach me is through [LinkedIn](https://www.linkedin.com/in/tom-jagus). I check messages regularly and reply when there's a clear reason to connect.
+A short message is enough to start. You can mention:
 
-To help me respond faster, please include:
+- The question, idea, or work you would like to discuss.
+- What is happening today and what you would like to change.
+- Any constraints that would help me understand the situation.
 
-- A quick summary of what you're looking for
-- Any relevant context or links
-- Why you think I might be a good fit
-
-Feel free to reach out — I’d be happy to hear from you.
-
-{{< button href="https://www.linkedin.com/in/tom-jagus" target="_blank" >}}
-📬 Get in touch
-{{< /button >}}
+You do not need a finished brief or a solution already in mind. Please avoid confidential information in your initial message.

@@ -1,0 +1,13 @@
+{{- $image := false -}}
+{{- with .Params.image -}}
+  {{- $image = $.Resources.GetMatch . -}}
+  {{- if not $image }}{{ errorf "Project %s: image %q is not a bundle resource" $.Path . }}{{ end -}}
+  {{- if not $.Params.image_alt }}{{ errorf "Project %s: image needs image_alt" $.Path }}{{ end -}}
+{{- end -}}
+<div class="project-image">
+  {{ if $image }}
+    <img src="{{ $image.RelPermalink }}" alt="{{ .Params.image_alt }}" loading="lazy"{{ if ne $image.MediaType.SubType "svg" }} width="{{ $image.Width }}" height="{{ $image.Height }}"{{ end }}>
+  {{ else }}
+    <img src="{{ "project-default.svg" | relURL }}" alt="" width="640" height="360" loading="lazy">
+  {{ end }}
+</div>

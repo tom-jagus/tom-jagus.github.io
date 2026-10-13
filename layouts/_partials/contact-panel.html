@@ -1,0 +1,20 @@
+{{ $options := . }}
+{{ $contact := site.GetPage "/contact" }}
+{{ with site.GetPage "/shared/contact" }}
+{{ $emailAction := or $options.email_action (not (and $contact $contact.RelPermalink (in site.Pages $contact))) }}
+<section class="panel contact-panel" id="contact" aria-labelledby="contact-title">
+  <div>
+    <h2 id="contact-title">{{ $options.heading | default .Title }}</h2>
+    <div class="measure">{{ .RenderString (dict "display" "block") ($options.intro | default .Params.intro) }}</div>
+  </div>
+  <div class="contact-actions">
+    <span class="contact-email">{{ site.Params.email }}</span>
+    {{ if $emailAction }}
+      <a class="button" href="mailto:{{ site.Params.email }}">Email me <span class="arrow" aria-hidden="true">↗</span></a>
+    {{ else }}
+      <a class="button" href="{{ $contact.RelPermalink }}">Contact me <span class="arrow" aria-hidden="true">→</span></a>
+    {{ end }}
+    <p class="meta">{{ site.Params.contact_note }}</p>
+  </div>
+</section>
+{{ end }}
