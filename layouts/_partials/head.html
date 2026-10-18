@@ -30,6 +30,9 @@
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 {{ $js := resources.Get "js/site.js" | minify | fingerprint "sha256" }}
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ if and hugo.IsProduction (not hugo.IsServer) }}
+<script data-goatcounter="https://tom-jagus.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{{ end }}
 {{ $published := where (where site.RegularPages "Section" "in" (slice "writing" "work")) "Draft" false }}
 {{ if $published }}
   {{ with site.Home.OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
